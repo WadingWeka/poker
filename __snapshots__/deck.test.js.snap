@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check deck generation Deck construction 1`] = `
+Object {
+  "deck": Any<Array>,
+  "jokers": false,
+  "noDecks": 1,
+}
+`;
+
+exports[`check deck generation Deck construction with 2 decks 1`] = `
+Object {
+  "deck": Any<Array>,
+  "jokers": false,
+  "noDecks": 2,
+}
+`;
+
+exports[`check deck generation Deck construction with 2 decks with jokers 1`] = `
+Object {
+  "deck": Any<Array>,
+  "jokers": true,
+  "noDecks": 2,
+}
+`;
+
+exports[`check deck generation Deck construction with jokers 1`] = `
+Object {
+  "deck": Any<Array>,
+  "jokers": true,
+  "noDecks": 1,
+}
+`;

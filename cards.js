@@ -3,25 +3,42 @@ Number.prototype.pad = function(size) {
     var s = String(this);
     while (s.length < (size || 2)) {s = " " + s;}
     return s;
-  }
+}
+
+String.prototype.pad = function(size) {
+    var s = String(this);
+    while (s.length < (size || 2)) {s = " " + s;}
+    return s;
+}
+
 
 const spades = ["♠", "spades"];
 const hearts = ["♥", "hearts"];
 const diamonds = ["♦", "diamonds"];
 const clubs = ["♣", "clubs"];
 
+const suites = [clubs,diamonds,hearts,spades];
+
 const cardTop = "┌──────────────┐";
+const cardCenter = "│              │";
 const cardBottom = "└──────────────┘";
 
-const cardIdenTop = () => `│${x.pad(2)}${y}           │`;
-const cardIdenBottom = () => `│            ${x.pad(2)}${y}│`;
+const cardIdenTop = (x,y) => `│${x.pad(2)}${y[0]}           │`;
+const cardIdenBottom = (x,y) => `│           ${x.pad(2)}${y[0]}│`;
 
 const centerPatterns = [
 
-]
+];
 
+const cardNameLookup = {1: "A", 11:"J", 12:"Q", 13:"K"}
+const cardName = (x) => {
+    return ((cardNameLookup[x]) ? cardNameLookup[x] : String(x));
+}
 
-function assembleCard(n, suite){
+// int - card, int - suite
+function assembleCard(n, s){
+    n = cardName(n)
+    let suite = suites[s] 
     let printRows = [];
     printRows.push(cardTop);
     printRows.push(cardIdenTop(n, suite));
@@ -30,7 +47,10 @@ function assembleCard(n, suite){
     }
     printRows.push(cardIdenBottom(n, suite));
     printRows.push(cardBottom);
+    return printRows;
 }
+
+module.exports = {assembleCard};
 
 
 
