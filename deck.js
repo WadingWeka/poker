@@ -5,7 +5,7 @@ class Deck {
     constructor ({jokers=false,noDecks=1,shuffled=true,cardSet=StandardCardSet} = {}){
         this.deck = [];
         this.delt = [];
-        this.discard = [];
+        this.discards = [];
         this.jokers = jokers;
         this.noDecks = noDecks;
         this.cardSet = cardSet;
@@ -52,6 +52,10 @@ class Deck {
 
     left(){
         return this.deck.length;
+    }
+
+    moveToDiscard(cards){ 
+        return true;
     }
 }
 

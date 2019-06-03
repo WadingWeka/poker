@@ -7,7 +7,7 @@ Object {
   "cardSet": [Function],
   "deck": Any<Array>,
   "delt": Array [],
-  "discard": Array [],
+  "discards": Array [],
   "jokers": false,
   "noDecks": 1,
 }
@@ -18,7 +18,7 @@ Object {
   "cardSet": [Function],
   "deck": Any<Array>,
   "delt": Array [],
-  "discard": Array [],
+  "discards": Array [],
   "jokers": false,
   "noDecks": 2,
 }
@@ -29,7 +29,7 @@ Object {
   "cardSet": [Function],
   "deck": Any<Array>,
   "delt": Array [],
-  "discard": Array [],
+  "discards": Array [],
   "jokers": true,
   "noDecks": 2,
 }
@@ -197,7 +197,7 @@ Deck {
     51,
   ],
   "delt": Array [],
-  "discard": Array [],
+  "discards": Array [],
   "jokers": false,
   "noDecks": 3,
 }
@@ -208,7 +208,7 @@ Object {
   "cardSet": [Function],
   "deck": Any<Array>,
   "delt": Array [],
-  "discard": Array [],
+  "discards": Array [],
   "jokers": true,
   "noDecks": 1,
 }

@@ -98,7 +98,7 @@ describe("standard card set model", () => {
 });
 
 describe("In Play", () => {
-    test('next', () => {
+    test('Check next card ', () => {
         let testDeck = new deck.Deck();
         let card = testDeck.next({formatted:false});
         expect(testDeck.delt.length).toEqual(1);
@@ -106,16 +106,13 @@ describe("In Play", () => {
     });
 });
 
-// describe("Discard pile", () => {
-//     test('ordred card set', () => {
-//         let card;
-//         let testDeck = new deck.Deck({shuffled:false});
-//         for (let i = 1; i <= 4; i++){
-//             for (let j = 1; j <= 13; j++){
-//                 card = testDeck.next();
-//                 expect(card).toEqual([j,i]);
-//             }
-//         }
-//     });
-// });
+describe("Discard pile", () => {
+    test('next', () => {
+        let testDeck = new deck.Deck();
+        let card = testDeck.next({formatted:false});
+        testDeck.moveToDiscard(card);
+        expect(testDeck.discards.length).toEqual(1);
+        expect(testDeck.discards[testDeck.discards.length-1]).toEqual(card);
+    });
+});
 
