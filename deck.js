@@ -1,10 +1,14 @@
+class DeckEmptyError extends Error {}
 
 class Deck {
     
-    constructor ({jokers=false,noDecks=1,shuffled=true} = {jokers:false,noDecks:1,shuffled:true}){
+    constructor ({jokers=false,noDecks=1,shuffled=true,cardSet=StandardCardSet} = {}){
         this.deck = [];
+        this.delt = [];
+        this.discard = [];
         this.jokers = jokers;
         this.noDecks = noDecks;
+        this.cardSet = cardSet;
         if (shuffled){
             this.shuffle();
         }
@@ -34,12 +38,15 @@ class Deck {
         }
     }
 
-    next(){
+    next({formatted=true}={}){
         if (this.left()){
-            return this.deck.shift();
+            let card = this.deck.shift();
+            if (formatted) card = this.cardSet.getCard(card);
+            this.delt.push(card);
+            return card;
         }
         else{
-            throw new Error("DeckEmptyError");
+            throw new DeckEmptyError;
         }
     }
 
@@ -48,4 +55,17 @@ class Deck {
     }
 }
 
-module.exports = {Deck};
+class StandardCardSet{
+    static getCard(card){
+        if (card >= 0){
+            let cardNum = card%13 + 1;
+            let cardSuite = Math.floor(card/13);
+            return [cardNum, cardSuite];
+        }
+        else {
+            return [card, -1];
+        }
+    }
+}
+
+module.exports = {Deck, DeckEmptyError};

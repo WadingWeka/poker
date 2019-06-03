@@ -11,13 +11,12 @@ String.prototype.pad = function(size) {
     return s;
 }
 
-
-const spades = ["♠", "spades"];
-const hearts = ["♥", "hearts"];
-const diamonds = ["♦", "diamonds"];
 const clubs = ["♣", "clubs"];
+const diamonds = ["♦", "diamonds"];
+const hearts = ["♥", "hearts"];
+const spades = ["♠", "spades"];
 
-const suites = [clubs,diamonds,hearts,spades];
+const suites = {0:clubs,1:diamonds,2:hearts,3:spades};
 
 const cardTop = "┌──────────────┐";
 const cardCenter = "│              │";
@@ -50,7 +49,7 @@ function assembleCard(n, s){
     return printRows;
 }
 
-module.exports = {assembleCard};
+module.exports = {assembleCard, suites};
 
 
 
